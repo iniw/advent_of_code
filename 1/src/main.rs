@@ -14,17 +14,6 @@ fn main() {
 	println!("part one: {:?}", result);
 
 	// part two
-	// if i could take a window of windows i woudln't have to do the loop :(
-	let mut iter = input.windows(3).peekable();
-	let mut counter = 0;
-
-	while let Some(x) = iter.next() {
-		if let Some(next) = iter.peek() {
-			if x.iter().sum::<u32>() < next.iter().sum() {
-				counter += 1;
-			}
-		}
-	}
-
-	println!("part two: {}", counter)
+	let result = input.windows(4).filter(|x| x.first() < x.last()).count();
+	println!("part two: {}", result)
 }
