@@ -10,20 +10,11 @@ fn main() {
 		.collect();
 
 	// part one
-	let mut iter = input.iter().peekable();
-	let mut counter = 0;
-
-	while let Some(x) = iter.next() {
-		if let Some(next) = iter.peek() {
-			if x < *next {
-				counter += 1;
-			}
-		}
-	}
-
-	println!("part one: {}", counter);
+	let result = input.windows(2).filter(|x| x[0] < x[1]).count();
+	println!("part one: {:?}", result);
 
 	// part two
+	// if i could take a window of windows i woudln't have to do the loop :(
 	let mut iter = input.windows(3).peekable();
 	let mut counter = 0;
 
