@@ -21,11 +21,29 @@ fn main() {
 		})
 		.collect();
 
+	// part one
+	let mut final_pos = 0;
+	let mut final_depth = 0;
+
+	for cmd in &input {
+		match cmd.kind.as_str() {
+			"forward" => {
+				final_pos += cmd.val;
+			}
+			"up" => final_depth -= cmd.val,
+			"down" => final_depth += cmd.val,
+			_ => unreachable!(),
+		}
+	}
+
+	println!("part one: {}", final_pos * final_depth);
+
+	// part two
 	let mut final_pos = 0;
 	let mut final_depth = 0;
 	let mut aim = 0;
 
-	for cmd in input {
+	for cmd in &input {
 		match cmd.kind.as_str() {
 			"forward" => {
 				final_pos += cmd.val;
@@ -37,5 +55,5 @@ fn main() {
 		}
 	}
 
-	println!("result: {}", final_pos * final_depth);
+	println!("part two: {}", final_pos * final_depth);
 }
