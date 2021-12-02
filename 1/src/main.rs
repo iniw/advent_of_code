@@ -10,18 +10,18 @@ fn main() {
 		.collect();
 
 	// part one
-	let mut iter = input.iter().rev().peekable();
+	let mut iter = input.iter().peekable();
 	let mut counter = 0;
 
 	while let Some(x) = iter.next() {
 		if let Some(next) = iter.peek() {
-			if x > *next {
+			if x < *next {
 				counter += 1;
 			}
 		}
 	}
 
-	println!("part one: {:?}", counter);
+	println!("part one: {}", counter);
 
 	// part two
 	let mut iter = input.windows(3).peekable();
@@ -35,5 +35,5 @@ fn main() {
 		}
 	}
 
-	println!("part two: {:?}", counter)
+	println!("part two: {}", counter)
 }
