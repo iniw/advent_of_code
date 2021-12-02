@@ -10,8 +10,8 @@ fn main() {
 		.collect();
 
 	// part one
-	let result = input.windows(2).filter(|x| x[0] < x[1]).count();
-	println!("part one: {:?}", result);
+	let result = input.windows(2).filter(|x| x.first() < x.last()).count();
+	println!("part one: {}", result);
 
 	// part two
 	let result = input.windows(4).filter(|x| x.first() < x.last()).count();
